@@ -1,0 +1,10 @@
+# 1 Write a program to perform arithmetic operations
+a, b = input("Enter Two Numbers: ").split()
+a = int(a)
+b = int(b)
+print("A: ", a)
+print("B: ", b)
+print("ADD: ", (a+b))
+print("SUB: ", (a-b))
+print("MUL: ", (a*b))
+print("DIV: ", (a/b))
