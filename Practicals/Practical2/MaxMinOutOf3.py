@@ -10,4 +10,4 @@ for i in range(len(a)):
 
 # print(a)
 print("Min: ", a[0])
-print("Max: ", a[2])
+print("Max: ", a[-1])
