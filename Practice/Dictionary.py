@@ -1,5 +1,6 @@
 d = {1: 'Jimmy', 2: 'Alex', 3: 'John', 4: 'Mike'}
 
+
 print("1st name is "+d[1])
 print("2nd name is "+d.get(4))
 print(d)
