@@ -6,17 +6,22 @@ for val in string.split(" "):
     if str.isdigit(val):
         numbers.append(val)
     else:
-        if '.' in val: # Check for Float Numbers
+        # Check for Float Numbers
+        if '.' in val: 
             for digit in val.split('.'):
                 if str.isdigit(digit):
                     numbers.append(digit)
-        else: # Non Float Values
+        # Non Float Values
+        else: 
             add = 0
-            for i in range(len(val)): # Check every character inside string
-                if ord(val[i]) in range(48, 58): # Consecutive Numbers
+            # Check every character inside string
+            for i in range(len(val)): 
+                # Consecutive Numbers
+                if ord(val[i]) in range(48, 58): 
                     if add > 0:
                         add = (add*10) + int(val[i])
-                    else: # Numbers mixed with character [a2bc3]
+                    # Numbers mixed with character [a2bc3]
+                    else: 
                         add += int(val[i])
                     if i == len(val)-1: 
                         numbers.append(add)
