@@ -1,36 +1,24 @@
-string = "()()"
-"(()())(())(()(()))"
-# "(()())(())"
-lc = rc = 0
+s = "(()())(())(()(()))"
+s = "()()"
+result = []
 l = []
-for char in string:
-    if char == "(":
-        if lc > 0:
-            l.append(char)
+lc = rc = 0
+for c in s:
+    l.append(c)
+    if c == "(":
         lc += 1
-    elif char == ")":
+    elif c == ")":
         rc += 1
-        if lc == rc:
-            lc = 0
-            rc = 0
-        else:
-            l.append(char)
-    print("LC:", lc, "--RC:", rc)
-print(l)
-"""
-( ()() ) ( () )
-
-Output
-()()
-()
-"""
-
-"""
-( ()() ) ( () ) ( () (()) )
-
-Output
-()()
-()
-()
-(())
-"""
+    if lc > 0 and rc > 0 and lc == rc:
+        l.pop(-1)
+        l.pop(0)
+        result.extend(l)
+        l = []
+        lc = rc = 0
+    
+    
+string = ""
+for c in result:
+    string += c
+    
+print(string)
