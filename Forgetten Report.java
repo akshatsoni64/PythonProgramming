@@ -9,30 +9,34 @@ public class Main
     					{10, 4, 8, 0}};
     	System.out.println(getMinDistance(nums, k, n));
     }
-    static int count = 1;
     static int res = Integer.MAX_VALUE;
     
     private static int getMinDistance(int[][] nums, int k, int n) {
     	boolean[] visited = new boolean[n];
     	visited[0] = true;
-    	dfs(nums, visited, k, 0, 0);
+    	dfs(nums, visited, k, 0, 0); // ([][]nums, []visited, k, cur, distance_val)
     	return res;
     }
     
-    private static void dfs(int[][] nums, boolean[] visited, int k, int cur, int tmp) {
-        System.out.println("\nHere we go again");
-	    System.out.println(Arrays.toString(visited));
+    private static void dfs(int[][] nums, boolean[] visited, int k, int cur, int distance_val) {
+        System.out.print(
+            String.format("CUR: %d \tDIST: %d\n", cur+1, distance_val)
+        );
+        // System.out.print("\nHere we go again ");
     	if(isAllVisited(visited)) {
-            System.out.print("\nCUR: ");
-    		System.out.println(cur);
-    		tmp += nums[cur][k-1] + nums[k-1][0];
-    		res = Math.min(res, tmp);
+            System.out.println("\n");
+    		distance_val += nums[cur][k-1] + nums[k-1][0];
+    		res = Math.min(res, distance_val);
     	}
     	for(int i=0;i<visited.length;i++) {
     		if(!visited[i]) {
     			visited[i] = true;
-    			dfs(nums, visited, k, i, tmp + nums[cur][i]);
+    			dfs(nums, visited, k, i, distance_val + nums[cur][i]);
     			visited[i] = false;
+    			System.out.println(
+    			    String.format("Unvisiting %d with CUR: %d",i+1, cur)
+			    );
+    // 			System.out.println(Arrays.toString(visited));
     		}
     	}
     }
@@ -42,7 +46,6 @@ public class Main
     		if(!v)
     			return false;
     	}
-    	System.out.println(count++);
     	return true;
     }
 }
