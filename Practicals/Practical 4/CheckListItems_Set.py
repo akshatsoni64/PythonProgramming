@@ -1,1 +1,0 @@
-# 5.3 W. A. P. to check if all the items are similar in python list using Set
