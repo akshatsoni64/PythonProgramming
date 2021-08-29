@@ -52,8 +52,8 @@ class MainClass:
         return root
         
     def levelOrder(self, root):
-        nodes_to_search = list();
-        nodes_traversed = ''
+        nodes_to_search = list()
+        nodes_traversed = list()
         nodes_to_search.append(root)
         while len(nodes_to_search) > 0:
             node = nodes_to_search.pop(0)
@@ -61,8 +61,8 @@ class MainClass:
                 nodes_to_search.append(node.left)  
             if node.right:
                 nodes_to_search.append(node.right)
-            nodes_traversed += str(node.data) + ' '
-        print(nodes_traversed, end=" ")
+            nodes_traversed.append(node.data)
+        print(*nodes_traversed)
         
     def inOrder(self, root):
         if root != None:
@@ -88,8 +88,8 @@ class MainClass:
 
         return
 
-vals = list(map(int, input("Input Nodes: ").split(" ")))
-# vals = [6, 3, 5, 4, 7, 2, 1]
+# vals = list(map(int, input("Input Nodes: ").split(" ")))
+vals = [6, 3, 5, 4, 7, 2, 1]
 obj = MainClass()
 root = None
 
@@ -97,7 +97,7 @@ for val in vals:
     root = obj.insertNode(root, val)
 print("Level-order Traversal: ", end="")
 obj.levelOrder(root)
-print("\n\nIn-order Traversal: ", end="")
+print("\nIn-order Traversal: ", end="")
 obj.inOrder(root)
 print("\n\nPre-order Traversal: ", end="")
 obj.preOrder(root)
