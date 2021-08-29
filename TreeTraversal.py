@@ -4,6 +4,41 @@ class Node:
         self.data = data
         
 class MainClass:
+    tr = []
+    def topView(self, root):
+        if root.left:
+            self.leftView(root)
+            t = reversed(self.tr)
+            print(*t, end=" ")
+        
+        if root.right:
+            self.rightView(root)
+
+    def leftView(self, root):
+        if root != None:
+            self.tr.append(root.data)
+            self.leftView(root.left)
+    
+    def rightView(self, root):
+        if root != None:
+            print(root.data, end=" ")
+            self.rightView(root.right)
+    
+    def height(self, root):
+        leftHeight = 0
+        rightHeight = 0
+        
+        if(root.left):
+            leftHeight = self.height(root.left) + 1
+        
+        if(root.right):
+            rightHeight = self.height(root.right) + 1
+        
+        if(leftHeight > rightHeight):
+            return leftHeight
+        else:
+            return rightHeight
+        
     def insertNode(self, root, data):
         if root == None:
             return Node(data)
