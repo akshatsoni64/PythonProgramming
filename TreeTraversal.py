@@ -4,20 +4,15 @@ class Node:
         self.data = data
         
 class MainClass:
-    tr = []
     def topView(self, root):
-        if root.left:
-            self.leftView(root)
-            t = reversed(self.tr)
-            print(*t, end=" ")
-        
-        if root.right:
-            self.rightView(root)
+        self.leftView(root.left)
+        print(root.data, end=" ")
+        self.rightView(root.right)
 
     def leftView(self, root):
         if root != None:
-            self.tr.append(root.data)
             self.leftView(root.left)
+            print(root.data, end=" ")
     
     def rightView(self, root):
         if root != None:
@@ -88,14 +83,17 @@ class MainClass:
 
         return
 
-# vals = list(map(int, input("Input Nodes: ").split(" ")))
+# ip = input("Input Nodes: ")
+# vals = list(map(int, ip.split(" ")))
 vals = [6, 3, 5, 4, 7, 2, 1]
 obj = MainClass()
 root = None
 
 for val in vals:
     root = obj.insertNode(root, val)
-print("Level-order Traversal: ", end="")
+print("Tree Top View: ", end="")
+obj.topView(root)
+print("\n\nLevel-order Traversal: ", end="")
 obj.levelOrder(root)
 print("\nIn-order Traversal: ", end="")
 obj.inOrder(root)
