@@ -7,6 +7,19 @@ class LinkedList:
     def __init__(self):
         self.head = None
         
+    def removeDuplicates(self, head):
+        if head is None:
+            return
+        
+        curr = head
+        while curr.next != None:
+            if curr.data == curr.next.data:
+                curr.next = curr.next.next
+            else:
+                curr = curr.next
+            
+        return head
+        
     def insertNode(self, head, data):
         if head != None:
             curr = head
@@ -67,7 +80,10 @@ if __name__ == "__main__":
     
     l.printList(head)
     
-    n = int(input("Enter Number Position to delete from backside: "))
-    head = l.deleteNodeFromEnd(head, n)
-    
+    head = l.removeDuplicates(head)
     l.printList(head)
+    
+    # n = int(input("Enter Number Position to delete from backside: "))
+    # head = l.deleteNodeFromEnd(head, n)
+    
+    # l.printList(head)
