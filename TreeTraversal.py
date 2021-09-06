@@ -6,7 +6,15 @@ class Node:
 class MainClass:
     m = {}
     mp = {}
-    h = 0    
+    h = 0
+    
+    def invertTree(self, root):
+        if root != None:
+            temp = root.left
+            root.left = root.right
+            root.right = temp
+            self.invertTree(root.left)
+            self.invertTree(root.right)
     
     def checkBST(self, root):
         def is_BST(root):
@@ -162,3 +170,9 @@ obj.preOrder(root)
 
 print("\n\nPost-order Traversal: ", end="")
 obj.postOrder(root)
+
+print("\n\nInverting the Tree...")
+obj.invertTree(root)
+
+print("\nIn-order Traversal: ", end="")
+obj.inOrder(root)
