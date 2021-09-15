@@ -8,6 +8,16 @@ class MainClass:
     mp = {}
     h = 0
     
+    def lca(self, root, v1, v2):
+        if (root.data < v1 and root.data > v2) or (root.data > v1 and root.data < v2):
+            return root
+        elif root.data < v1 and root.data < v2:
+            return self.lca(root.right, v1, v2)
+        elif root.data > v1 and root.data > v2:
+            return self.lca(root.left, v1, v2)
+        elif root.data == v1 or root.data == v2:
+            return root
+    
     def invertTree(self, root):
         if root != None:
             temp = root.left
@@ -176,3 +186,5 @@ obj.invertTree(root)
 
 print("\nIn-order Traversal: ", end="")
 obj.inOrder(root)
+
+print("Lowest Common Ancestor: ", obj.lca(root, 1, 7).data)
