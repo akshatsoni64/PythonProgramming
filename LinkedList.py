@@ -7,6 +7,13 @@ class LinkedList:
     def __init__(self):
         self.head = None
         
+    def reversePrint(llist):
+        st = []
+        while(llist.next != None):
+            st.insert(0, llist.data)
+            llist = llist.next
+        print(llist.data, *st, sep="\n")
+        
     def removeDuplicates(self, head):
         if head is None:
             return
