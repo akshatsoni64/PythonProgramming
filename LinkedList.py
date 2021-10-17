@@ -6,6 +6,18 @@ class LinkedListNode:
 class LinkedList:
     def __init__(self):
         self.head = None
+        
+        
+    def getDecimalValue(self, head):
+        st = []
+        while head:
+            st.append(head.val)
+            head = head.next
+        st.reverse()
+        intt = 0
+        for i in range(len(st)):
+            intt += (st[i]*(2**i))
+        return intt
 
 
     def compare_lists(llist1, llist2):
