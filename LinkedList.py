@@ -6,6 +6,17 @@ class LinkedListNode:
 class LinkedList:
     def __init__(self):
         self.head = None
+    def reverse(llist):
+        curr = llist
+        previous = None
+        following = curr.next
+        while curr:
+            curr.next = previous
+            previous = curr
+            curr = following
+            if following:
+                following = following.next
+        return previous
         
     def reversePrint(llist):
         st = []
