@@ -6,6 +6,16 @@ class LinkedListNode:
 class LinkedList:
     def __init__(self):
         self.head = None
+
+
+    def compare_lists(llist1, llist2):
+        res = 0
+        while llist1 and llist2 and llist1.data == llist2.data:
+            llist1 = llist1.next
+            llist2 = llist2.next
+        return 1 if not llist1 and not llist2 else 0
+
+
     def reverse(llist):
         curr = llist
         previous = None
@@ -17,6 +27,7 @@ class LinkedList:
             if following:
                 following = following.next
         return previous
+
         
     def reversePrint(llist):
         st = []
@@ -25,6 +36,7 @@ class LinkedList:
             llist = llist.next
         print(llist.data, *st, sep="\n")
         
+
     def removeDuplicates(self, head):
         if head is None:
             return
@@ -38,6 +50,7 @@ class LinkedList:
             
         return head
         
+    
     def insertNode(self, head, data):
         if head != None:
             curr = head
@@ -51,6 +64,7 @@ class LinkedList:
         
         return head
         
+    
     def printList(self, head):
         print("\nList:")
         if head != None:
@@ -60,6 +74,7 @@ class LinkedList:
         else:
             print("List is empty!")
         
+    
     def deleteNodeFromEnd(self, head, n):
         # Get length of linkedlist
         temp = head
