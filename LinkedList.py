@@ -11,7 +11,7 @@ class LinkedList:
         temp = head
         
         while temp and temp.next:
-            temp.val, temp.next.val = temp.next.val, temp.val
+            temp.data, temp.next.data = temp.next.data, temp.data
         
             temp = temp.next.next
         
