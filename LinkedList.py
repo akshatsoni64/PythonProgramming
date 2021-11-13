@@ -7,6 +7,16 @@ class LinkedList:
     def __init__(self):
         self.head = None
         
+    def swapPairs(self, head):
+        temp = head
+        
+        while temp and temp.next:
+            temp.val, temp.next.val = temp.next.val, temp.val
+        
+            temp = temp.next.next
+        
+        return head
+        
         
     def getDecimalValue(self, head):
         st = []
