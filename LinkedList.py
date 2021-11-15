@@ -6,6 +6,14 @@ class LinkedListNode:
 class LinkedList:
     def __init__(self):
         self.head = None
+    
+    def hasCycle(self, head):
+        while head:
+            if head.val == None:
+                return True
+            head.val = None
+            head = head.next
+        return False
         
     def middleNode(self, head):
         sp = fp = head
