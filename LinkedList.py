@@ -7,6 +7,14 @@ class LinkedList:
     def __init__(self):
         self.head = None
         
+    def middleNode(self, head):
+        sp = fp = head
+        while fp and fp.next:
+            sp = sp.next
+            fp = fp.next.next
+        
+        return sp
+        
     def swapPairs(self, head):
         temp = head
         
