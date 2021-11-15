@@ -7,6 +7,19 @@ class LinkedList:
     def __init__(self):
         self.head = None
     
+    def getIntersectionNode(self, headA, headB):
+        if not headA or not headB:
+            return None
+        
+        p1 = headA
+        p2 = headB
+        
+        while p1 is not p2:
+            p1 = headB if p1 is None else p1.next
+            p2 = headA if p2 is None else p2.next
+        
+        return p1
+    
     def hasCycle(self, head):
         while head:
             if head.val == None:
