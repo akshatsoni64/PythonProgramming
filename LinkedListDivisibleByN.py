@@ -4,7 +4,7 @@ class Node:
         self.next = None
 
 if __name__ == "__main__":
-    n = 7
+    n = 4
     root = Node('1')
     one = Node('4')
     two = Node("")
@@ -30,6 +30,9 @@ if __name__ == "__main__":
         else:
             flag = bool(int(value)%n == 0)
             value = ""
+        if not flag:
+            print(flag)
+            exit(0)
         node = node.next
     
     print(flag)
