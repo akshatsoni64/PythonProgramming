@@ -26,3 +26,27 @@ def fun2(n):
     return res
 ans = fun2(18)
 print(*ans)
+
+# 3. Prime Number (New Approach)
+from math import sqrt
+
+def func(n):
+    if n == 0  or n == 1:
+        return False
+    
+    if n == 2 or n == 3:
+        return True
+    
+    if n%2 == 0 or n%3 == 0:
+        return False
+        
+    print("int(sqrt(n))+1", int(sqrt(n))+1)
+    for i in range(5, int(sqrt(n))+1):
+        print(n, i)
+        if n%i == 0 or n%(i+2) == 0:
+            return False
+            
+    return True
+
+n = 431
+print(f"Is {n} prime? - {func(n)}")
