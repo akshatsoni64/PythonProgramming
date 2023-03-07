@@ -50,3 +50,21 @@ def func(n):
 
 n = 431
 print(f"Is {n} prime? - {func(n)}")
+
+# 4. Sieve of Eratosthenes
+from math import sqrt
+
+def genprimes(n):
+    primes = [True]*(n+1)
+    primes[0]=False
+    primes[1]=False
+    for i in range(2, int(sqrt(n))+1):
+        if primes[i] == True:
+            for i in range(i*i, n+1, i):
+                primes[i] = False
+    
+    for i in range(0, len(primes)):
+        if primes[i] == True:
+            print(i, end="\t")
+
+genprimes(50)
